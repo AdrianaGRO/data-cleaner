@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files - users add their own, don't commit personal data
+data/input/*
+!data/input/.gitkeep
+
+data/output/*
+!data/output/.gitkeep
+
+# Test results - generated during testing
+tests/test_results/*
+!tests/test_results/.gitkeep
+
+# Keep ONLY the core test files
+tests/test_data/*
+!tests/test_data/test1_small_sales.xlsx
+!tests/test_data/test2_hr_employees.xlsx
+!tests/test_data/test3_medium_customers.xlsx
+!tests/test_data/test4_inventory.xlsx
+!tests/test_data/test5_transactions_january.xlsx
+!tests/test_data/test5_transactions_february.xlsx
+!tests/test_data/test5_transactions_march.xlsx
+
+# Development files
+archive/
+notes.txt
+TODO.md
+planning/
+docs/scope.txt
+docs/future_features.md
+docs/PROJECT_STRUCTURE.md
+
+# Backup/temp files
+*_backup.json
+*_backup.py
+config_*_test.json
+*.tmp
+*.bak
+
+# Excel temp files
+~$*.xlsx
+~$*.xls

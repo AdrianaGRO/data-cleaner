@@ -1,0 +1,23 @@
+{
+  "files": {
+    "input_files": [
+      "data/input/loyalty_file_1.xlsx",
+      "data/input/loyalty_file_2.xlsx",
+      "data/input/loyalty_file_3.xlsx"
+    ],
+    "output_file": "data/output/cleaned_loyalty_data.xlsx"
+  },
+  "cleaning_options": {
+    "duplicate_column": "Email",
+    "keep_rule": "first",
+    "date_columns": [
+      "Birthday",
+      "JoinDate"
+    ],
+    "phone_columns": [
+      "Phone"
+    ],
+    "remove_blank_rows": true,
+    "format_excel": true
+  }
+}
