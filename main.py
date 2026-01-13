@@ -8,6 +8,33 @@ from cleaner import (
 
 from config_loader import load_config
 import sys
+import os
+from datetime import datetime
+
+def _resolve_output_path(pattern: str) -> str:
+    """Resolve timestamp placeholders in output path and ensure directory exists.
+
+    Supported tokens:
+      - {date} -> YYYYMMDD
+      - {time} -> HHMMSS
+      - {datehour} -> YYYYMMDD_HH
+      - {datetime} -> YYYYMMDD_HHMMSS
+    """
+    now = datetime.now()
+    tokens = {
+        "{date}": now.strftime("%Y%m%d"),
+        "{time}": now.strftime("%H%M%S"),
+        "{datehour}": now.strftime("%Y%m%d_%H"),
+        "{datetime}": now.strftime("%Y%m%d_%H%M%S"),
+    }
+    resolved = pattern
+    for k, v in tokens.items():
+        resolved = resolved.replace(k, v)
+    # Ensure directory exists
+    out_dir = os.path.dirname(resolved)
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
+    return resolved
 
 def run_pipeline():
     """Main pipeline with error handling."""
@@ -24,7 +51,7 @@ def run_pipeline():
     print()
     #Extract settings
     file_paths = config['files']['input_files']
-    output_file = config['files']['output_file']
+    output_file = _resolve_output_path(config['files']['output_file'])
     duplicate_column = config['cleaning_options']['duplicate_column']
     keep_rule = config['cleaning_options'].get('keep_rule', 'first')
     date_columns = config['cleaning_options'].get('date_columns', [])

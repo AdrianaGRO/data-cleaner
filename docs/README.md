@@ -113,6 +113,12 @@ Memory:    Efficient (tested on MacBook Air)
 pip install pandas openpyxl --break-system-packages
 ```
 
+Or using the provided requirements file:
+
+```bash
+pip install -r requirements.txt
+```
+
 ---
 
 ### Installation
@@ -198,6 +204,27 @@ python3 main.py
 
 ---
 
+### Timestamped Output Filenames
+
+You can include timestamps in `files.output_file` using these placeholders:
+
+- `{date}` → YYYYMMDD
+- `{time}` → HHMMSS
+- `{datehour}` → YYYYMMDD_HH
+- `{datetime}` → YYYYMMDD_HHMMSS
+
+Example:
+
+```json
+{
+  "files": {
+    "input_files": ["data/input/sales_q1.xlsx"],
+    "output_file": "data/output/cleaned_{datetime}.xlsx"
+  },
+  "cleaning_options": { "duplicate_column": "Email" }
+}
+```
+
 ### Date Format Support
 
 Automatically handles these formats (and more):
@@ -277,20 +304,26 @@ data_cleaner/
 ├── cleaner.py               # Core processing functions
 ├── config_loader.py         # Configuration management
 ├── config.json              # User settings
+├── requirements.txt         # Python dependencies
+├── LICENSE                  # MIT license
 │
 ├── data/
-│   ├── input/              # 📥 Place files here
-│   └── output/             # 📤 Results appear here
+│   ├── input/               # 📥 Place files here
+│   └── output/              # 📤 Results appear here
 │
 ├── tests/
-│   ├── run_all_tests.py    # Automated test suite
-│   ├── test_data/          # Test input files
-│   ├── test_results/       # Test outputs (timestamped)
-│   └── utilities/          # Test helper scripts
+│   ├── run_all_tests.py     # Automated test suite
+│   ├── test_data/           # Test input files
+│   ├── test_results/        # Test outputs (timestamped)
+│   └── utilities/           # Test helper scripts
+│
+├── client_demo/
+│   ├── config_sample.json   # Sample configuration
+│   ├── messy_sample.xlsx    # Demo data file
+│   └── README.md            # Demo instructions
 │
 └── docs/
-    ├── README.md           # This file
-    └── scope.txt           # Project requirements
+    └── README.md            # This file
 ```
 
 ---
