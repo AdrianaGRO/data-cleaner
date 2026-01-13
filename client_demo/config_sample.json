@@ -1,0 +1,21 @@
+{
+  "files": {
+    "input_files": [
+      "data/input/messy_sample.xlsx"
+    ],
+    "output_file":"data/output/cleaned_sample_{datetime}.xlsx"
+  },
+  "cleaning_options": {
+    "duplicate_column": "Email",
+    "keep_rule": "first",
+    "date_columns": ["SignupDate"],
+    "phone_columns": ["Phone"],
+    "remove_blank_rows": true,
+    "format_excel": true
+  },
+    "_comments":  {
+    "date_columns": "Converts dates to YYYY-MM-DD format",
+    "phone_columns": "Formats phones to (XXX) XXX-XXXX",
+    "format_excel": "Applies Excel formatting: bold headers and auto-width columns"
+  }
+}

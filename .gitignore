@@ -28,6 +28,9 @@ data/input/*
 data/output/*
 !data/output/.gitkeep
 
+# Ignore demo script
+docs/DEMO_SCRIPT.md
+
 # Test results - generated during testing
 tests/test_results/*
 !tests/test_results/.gitkeep
@@ -50,6 +53,7 @@ planning/
 docs/scope.txt
 docs/future_features.md
 docs/PROJECT_STRUCTURE.md
+docs/DEMO_SCRIPT.md
 
 # Backup/temp files
 *_backup.json
