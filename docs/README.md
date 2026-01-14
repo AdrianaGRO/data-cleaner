@@ -12,7 +12,23 @@ Transform messy, duplicate-filled data files into clean, standardized datasets i
 ---
 
 ## 🎯 What It Does
+---
 
+## 🎬 Demo Video
+
+See Data Cleaner in action (30 seconds):
+
+[![Watch Demo Video](https://img.shields.io/badge/▶️-Watch%20Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/4kGrJDcpQzU)
+
+**What you'll see:**
+- Messy Excel file with duplicates and mixed formats
+- Simple configuration (no coding required)
+- One-command execution
+- Clean, standardized results in seconds
+
+*Note: This is an unlisted video - only visible via this link*
+
+---
 Data Cleaner automates time-consuming data cleaning tasks for your spreadsheet files:
 
 - **Merge Multiple Files** - Combine 2-100 Excel or CSV files into one dataset
