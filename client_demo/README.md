@@ -155,7 +155,7 @@ bob@test.com       (555) 123-4567  2024-01-15
 
 ## 🎁 Portfolio Offer
 
-I'm building my freelance portfolio and offering special rates for the first 5 clients.
+I'm building my freelance portfolio and offering special rates for the first clients.
 
 ### Option 1: Done-For-You Service ⭐
 
