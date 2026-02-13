@@ -40,16 +40,16 @@ def run_pipeline():
     """Main pipeline with error handling."""
     
     print("=" * 60)
-    print(" Excel Cleaner - FULL PIPELINE ")
+    print(" Data Cleaner - FULL PIPELINE ")
     print("=" * 60)
     print()
     
-    #Load configuration 
+    #Load configuration file  
     print("Loading configuration from config.json...")
     config = load_config()
     print("✅ Configuration loaded")
     print()
-    #Extract settings
+    #Extract settings for pipeline
     file_paths = config['files']['input_files']
     output_file = _resolve_output_path(config['files']['output_file'])
     duplicate_column = config['cleaning_options']['duplicate_column']
@@ -71,7 +71,7 @@ def run_pipeline():
     
     
     try:
-        #==== Step 1: Merge files ====#
+        #==== Step 1: Merge all the input files ====#
         print(f"Step 1: Merging {len(file_paths)} files...")
         
         try:

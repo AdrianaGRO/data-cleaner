@@ -333,11 +333,6 @@ data_cleaner/
 │   ├── test_results/        # Test outputs (timestamped)
 │   └── utilities/           # Test helper scripts
 │
-├── client_demo/
-│   ├── config_sample.json   # Sample configuration
-│   ├── messy_sample.xlsx    # Demo data file
-│   └── README.md            # Demo instructions
-│
 └── docs/
     └── README.md            # This file
 ```
