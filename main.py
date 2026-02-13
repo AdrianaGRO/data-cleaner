@@ -115,8 +115,15 @@ def run_pipeline():
         #==== Step 4: Standardize dates ====#
         print("Step 4: Standardizing date columns...")
         try:
-            merged_df, dates_fixed = standardize_dates(merged_df, date_columns=date_columns)
-            print(f"✅ Standardized {dates_fixed} date(s) to YYYY-MM-DD")
+            existing_date_cols = [c for c in (date_columns or []) if c in merged_df.columns]
+            if not existing_date_cols:
+                print("⚠️  No matching date columns found; skipping")
+                print(f"   Requested: {date_columns if date_columns else 'None'}")
+                print(f"   Available: {list(merged_df.columns)}")
+                dates_fixed = 0
+            else:
+                merged_df, dates_fixed = standardize_dates(merged_df, date_columns=existing_date_cols)
+                print(f"✅ Standardized {dates_fixed} date(s) to YYYY-MM-DD")
         except ValueError as e:
             print(f"⚠️  Date standardization skipped: {e}")
             print(f"   Available columns: {list(merged_df.columns)}")
@@ -125,8 +132,15 @@ def run_pipeline():
         #==== Step 5: Clean phone numbers ====#
         print("Step 5: Cleaning phone numbers...")
         try:
-            merged_df, phone_fixed = clean_phone_numbers(merged_df, phone_columns=phone_columns)
-            print(f"✅ Cleaned {phone_fixed} phone number(s)")
+            existing_phone_cols = [c for c in (phone_columns or []) if c in merged_df.columns]
+            if not existing_phone_cols:
+                print("⚠️  No matching phone columns found; skipping")
+                print(f"   Requested: {phone_columns if phone_columns else 'None'}")
+                print(f"   Available: {list(merged_df.columns)}")
+                phone_fixed = 0
+            else:
+                merged_df, phone_fixed = clean_phone_numbers(merged_df, phone_columns=existing_phone_cols)
+                print(f"✅ Cleaned {phone_fixed} phone number(s)")
         except ValueError as e:
             print(f"⚠️  Phone cleaning skipped: {e}")
             print(f"   Available columns: {list(merged_df.columns)}")

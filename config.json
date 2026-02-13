@@ -9,8 +9,7 @@
     "duplicate_column": "Email",
     "keep_rule": "first",
     "date_columns": [
-      "Birthday",
-      "JoinDate"
+      "SignupDate"
     ],
     "phone_columns": [
       "Phone"
