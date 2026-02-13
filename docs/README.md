@@ -18,7 +18,7 @@ Transform messy, duplicate-filled data files into clean, standardized datasets i
 
 See Data Cleaner in action (30 seconds):
 
-[![Watch Demo Video](https://img.shields.io/badge/▶️-Watch%20Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/4kGrJDcpQzU)
+[![Watch Demo Video](https://img.shields.io/badge/▶️-Watch%20Demo%20Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=gQ74g2yKmHI)
 
 **What you'll see:**
 - Messy Excel file with duplicates and mixed formats
