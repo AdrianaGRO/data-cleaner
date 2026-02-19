@@ -52,7 +52,13 @@ def run_pipeline():
     #Extract settings for pipeline
     file_paths = config['files']['input_files']
     output_file = _resolve_output_path(config['files']['output_file'])
-    duplicate_column = config['cleaning_options']['duplicate_column']
+    # Support both single column (legacy) and multiple columns
+    if 'duplicate_columns' in config['cleaning_options']:
+        duplicate_columns = config['cleaning_options']['duplicate_columns']
+    elif 'duplicate_column' in config['cleaning_options']:
+        duplicate_columns = [config['cleaning_options']['duplicate_column']]
+    else:
+        duplicate_columns = ['Email']  # default
     keep_rule = config['cleaning_options'].get('keep_rule', 'first')
     date_columns = config['cleaning_options'].get('date_columns', [])
     phone_columns = config['cleaning_options'].get('phone_columns', [])
@@ -63,7 +69,7 @@ def run_pipeline():
     print(f"Settings:")
     print(f"    - Input files: {len(file_paths)} file(s)")
     print(f"    - Output file: {output_file}") 
-    print(f"    - Duplicate check: {duplicate_column}")
+    print(f"    - Duplicate check: {duplicate_columns}")
     print(f"    - Date columns: {date_columns if date_columns else 'None'}")
     print(f"    - Phone columns: {phone_columns if phone_columns else 'None'}")
     print(f"    - Remove blank rows: {remove_blanks}")
@@ -78,7 +84,7 @@ def run_pipeline():
             # First, just merge without deduplication
             merged_df, summary = clean_excel_pipeline(
                 file_paths=file_paths,
-                subset_columns=[duplicate_column],
+                subset_columns=duplicate_columns,
                 keep_rule="first"
             )
             print(f"✅ Merged {summary['files_merged']} files")
@@ -104,9 +110,9 @@ def run_pipeline():
         print()
         
         #==== Step 3: Remove duplicates ====#
-        print("Step 3: Removing duplicates...")
+        print(f"Step 3: Removing duplicates based on {duplicate_columns}...")
         rows_before_dedup = len(merged_df)
-        merged_df = merged_df.drop_duplicates(subset=[duplicate_column], keep="first")
+        merged_df = merged_df.drop_duplicates(subset=duplicate_columns, keep="first")
         duplicates_removed = rows_before_dedup - len(merged_df)
         print(f"✅ Duplicates removed: {duplicates_removed}")
         print(f"✅ Final rows: {len(merged_df)}")

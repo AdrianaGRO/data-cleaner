@@ -29,9 +29,9 @@ def load_config(config_file="config.json"):
             raise ValueError("Missing 'output_file' in 'files' section of config")
         
         
-        #Validate cleaning options
-        if 'duplicate_column' not in config['cleaning_options']:
-            raise ValueError("Missing 'duplicate_column' in 'cleaning_options' config")
+        #Validate cleaning options - support both old and new format
+        if 'duplicate_column' not in config['cleaning_options'] and 'duplicate_columns' not in config['cleaning_options']:
+            raise ValueError("Missing 'duplicate_column' or 'duplicate_columns' in 'cleaning_options' config")
         
         return config
     
