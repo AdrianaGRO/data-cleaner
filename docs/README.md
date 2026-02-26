@@ -464,7 +464,7 @@ Thanks to:
 A: Yes! The tool automatically detects file types and processes them together.
 
 **Q: What's the maximum file size?**  
-A: Tested successfully with 450,000 rows. Limited by available RAM.
+A: Tested on 1,000,000+ rows. Processed in 213 seconds. Limited by available RAM.
 
 **Q: Does it modify my original files?**  
 A: No. All original files remain unchanged. Output is saved to a new file.

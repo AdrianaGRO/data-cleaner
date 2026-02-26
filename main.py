@@ -39,6 +39,8 @@ def _resolve_output_path(pattern: str) -> str:
 def run_pipeline():
     """Main pipeline with error handling."""
     
+    import time
+    start_time = time.time()
     print("=" * 60)
     print(" Data Cleaner - FULL PIPELINE ")
     print("=" * 60)
@@ -187,6 +189,8 @@ def run_pipeline():
         print(f"   Dates standardized: {dates_fixed if 'dates_fixed' in locals() else 0}")
         print(f"   Phones cleaned: {phone_fixed if 'phone_fixed' in locals() else 0}")
         print(f"   Final row count: {len(merged_df)}")
+        elapsed = time.time() - start_time
+        print(f"   Time taken: {elapsed:.2f} seconds")
         print()
         print(f"📂 Output: {output_file}")
         print()

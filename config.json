@@ -1,15 +1,18 @@
 {
   "files": {
     "input_files": [
-      "data/input/messy_sample.xlsx"
+
+      "/Users/adricati/Personal Development/data_cleaner/data/input/stress_test_file_1_20260226_114152.csv",
+      "/Users/adricati/Personal Development/data_cleaner/data/input/stress_test_file_2_20260226_114258.xlsx",
+      "/Users/adricati/Personal Development/data_cleaner/data/input/stress_test_file_3_20260226_114357.csv"
     ],
-    "output_file": "data/output/cleaned_data_{datetime}.xlsx"
+    "output_file": "data/output/cleaned_data_STRESSTEST{datetime}.xlsx"
   },
   "cleaning_options": {
     "duplicate_columns": ["Email", "Phone"],
     "keep_rule": "first",
     "date_columns": [
-      "SignupDate"
+      "JoinDate"
     ],
     "phone_columns": [
       "Phone"
